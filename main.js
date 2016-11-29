@@ -1,35 +1,32 @@
 'use strict';
 
-var app = require('app');
-var BrowserWindow = require('browser-window');
+const {app, BrowserWindow, Menu} = require('electron');
 
-require('crash-reporter').start();
+let mainWindow = null;
 
-var mainWindow = null;
-
-app.on('window-all-closed', function() {
+app.on('window-all-closed', () => {
   if (process.platform != 'darwin') {
     app.quit();
   }
 });
 
-app.on('ready', function() {
+app.on('ready', () => {
   mainWindow = new BrowserWindow({
     width: 480,
     height: 640,
   });
-  mainWindow.loadUrl('file://' + __dirname + '/index.html');
+  console.log(__dirname);
+  mainWindow.loadURL('file://' + __dirname + '/index.html');
   installMenu();
 
-  mainWindow.on('closed', function() {
+  mainWindow.on('closed', () => {
     mainWindow = null;
   });
 });
 
-function installMenu() {
-  var Menu = require('menu');
+const installMenu = () => {
   if(process.platform === 'darwin') {
-    var menu = Menu.buildFromTemplate([
+    const menu = Menu.buildFromTemplate([
       {
         label: 'PW-copy-Generator',
         submenu: [
@@ -67,7 +64,9 @@ function installMenu() {
           {
             label: 'Quit',
             accelerator: 'Command+Q',
-            click: function() { app.quit(); }
+            click() {
+              app.quit();
+            }
           },
         ]
       },
@@ -77,17 +76,23 @@ function installMenu() {
           {
             label: 'Reload',
             accelerator: 'Command+R',
-            click: function() { mainWindow.restart(); }
+            click() {
+              mainWindow.restart();
+            }
           },
           {
             label: 'Toggle Full Screen',
             accelerator: 'Ctrl+Command+F',
-            click: function() { mainWindow.setFullScreen(!mainWindow.isFullScreen()); }
+            click() {
+              mainWindow.setFullScreen(!mainWindow.isFullScreen());
+            }
           },
           {
             label: 'Toggle Developer Tools',
             accelerator: 'Alt+Command+I',
-            click: function() { mainWindow.toggleDevTools(); }
+            click() {
+              mainWindow.toggleDevTools();
+            }
           },
         ]
       }
@@ -101,17 +106,23 @@ function installMenu() {
           {
             label: '&Reload',
             accelerator: 'Ctrl+R',
-            click: function() { mainWindow.restart(); }
+            click() {
+              mainWindow.restart();
+            }
           },
           {
             label: 'Toggle &Full Screen',
             accelerator: 'F11',
-            click: function() { mainWindow.setFullScreen(!mainWindow.isFullScreen()); }
+            click() {
+              mainWindow.setFullScreen(!mainWindow.isFullScreen());
+            }
           },
           {
             label: 'Toggle &Developer Tools',
             accelerator: 'Alt+Ctrl+I',
-            click: function() { mainWindow.toggleDevTools(); }
+            click() {
+              mainWindow.toggleDevTools();
+            }
           },
         ]
       }
