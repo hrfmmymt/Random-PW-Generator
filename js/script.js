@@ -1,4 +1,4 @@
-var generatePassword = () => {
+const generatePassword = () => {
   const lunPass = document.getElementById("passlen").value;
   const lowerLetter = document.getElementById("lower").checked;
   const upperLetter = document.getElementById("upper").checked;
