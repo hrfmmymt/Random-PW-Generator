@@ -4,7 +4,7 @@
   "description": "Random PW Generator in electron",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "xo",
     "start": "electron .",
     "build": "npm run build:macos && npm run build:linux && npm run build:windows",
     "build:macos": "electron-packager . --overwrite --asar --out=dist --ignore='^media$' --platform=darwin --arch=x64 --icon=static/Icon.icns && cd dist/Random-PW-Generator-darwin-x64 && zip -ryXq9 ../Random-PW-Generator-osx-${npm_package_version}.zip Random-PW-Generator.app",
@@ -17,7 +17,8 @@
     "electron": "^1.4.6",
     "electron-packager": "^8.2.0",
     "electron-prebuilt": "^1.4.6",
-    "electron-reload": "^1.0.3"
+    "path": "^0.12.7",
+    "xo": "^0.17.1"
   },
   "dependencies": {
     "electron-config": "^0.2.1",
@@ -25,5 +26,16 @@
     "electron-debug": "^1.1.0",
     "electron-dl": "^1.5.0",
     "element-ready": "^0.2.0"
+  },
+  "xo": {
+    "space": 2,
+    "rules": {
+      "quotes": [2, "double"]
+    },
+    "esnext": true,
+    "envs": [
+      "node",
+      "browser"
+    ]
   }
 }
