@@ -2,7 +2,7 @@
 
 const {app, BrowserWindow, Menu} = require('electron');
 
-let mainWindow = null;
+let mainWindow;
 
 app.on('window-all-closed', () => {
   if (process.platform != 'darwin') {
@@ -15,7 +15,6 @@ app.on('ready', () => {
     width: 480,
     height: 640,
   });
-  console.log(__dirname);
   mainWindow.loadURL('file://' + __dirname + '/index.html');
   installMenu();
 
@@ -77,7 +76,7 @@ const installMenu = () => {
             label: 'Reload',
             accelerator: 'Command+R',
             click() {
-              mainWindow.restart();
+              mainWindow.reload();
             }
           },
           {
@@ -107,7 +106,7 @@ const installMenu = () => {
             label: '&Reload',
             accelerator: 'Ctrl+R',
             click() {
-              mainWindow.restart();
+              mainWindow.reload();
             }
           },
           {
