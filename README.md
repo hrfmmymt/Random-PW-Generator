@@ -9,7 +9,7 @@ Generate a random password and copy it to the clipboard.
 
 ### macOS
 
-[**Download**](https://github.com/hrfmmymt/Random-PW-Generator/releases/latest), unzip, and move `Caprine.app` to the `/Applications` directory.
+[**Download**](https://github.com/hrfmmymt/Random-PW-Generator/releases/latest), unzip, and move `Random-PW-Generator.app` to the `/Applications` directory.
 
 ### Linux
 
