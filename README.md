@@ -3,6 +3,22 @@ Generate a random password and copy it to the clipboard.
 
 [![Build Status](https://secure.travis-ci.org/hrfmmymt/Random-PW-Generator.svg?branch=master)](http://travis-ci.org/hrfmmymt/Random-PW-Generator)
 
+## Install
+
+*macOS 10.9+, Windows 7+ & Linux are supported.*
+
+### macOS
+
+[**Download**](https://github.com/hrfmmymt/Random-PW-Generator/releases/latest), unzip, and move `Caprine.app` to the `/Applications` directory.
+
+### Linux
+
+[**Download**](https://github.com/hrfmmymt/Random-PW-Generator/releases/latest) and unzip to some location.
+
+### Windows
+
+[**Download**](https://github.com/hrfmmymt/Random-PW-Generator/releases/latest) and unzip to some location.
+
 ## Dev
 
 Built with [Electron](http://electron.atom.io).
