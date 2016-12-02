@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "test": "xo",
-    "start": "electron .",
+    "start": "npm run css && electron .",
     "css": "npm run l-css -s && postcss -c ./.postcssrc.json",
     "w-css": "npm run l-css -s && postcss -c ./.postcssrc.json -w --map",
     "l-css": "stylelint src/**/*.css",
