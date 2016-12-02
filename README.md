@@ -27,6 +27,8 @@ Built with [Electron](http://electron.atom.io).
 
 - Init: `$ npm install`
 - Run: `$ npm start`
+- CSS Processing: `$ npm run css`
+- Watch the above: `$ npm run w-css`
 - Build macOS: `$ npm run build:macos`
 - Build Linux: `$ npm run build:linux`
 - Build Windows: `$ npm run build:windows`
