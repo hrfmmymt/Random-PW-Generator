@@ -1,0 +1,10 @@
+{
+  "use": [
+    "autoprefixer",
+    "cssnano",
+    "postcss-custom-properties",
+    "postcss-nested"
+  ],
+  "input": "./src/css/style.css",
+  "output": "./dist/css/style.css"
+}

@@ -1,16 +1,30 @@
-html, body, div, header, h1, section, label, input, textarea, button, ul, li, footer {
+:root {
+  --font-stack: 16px 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+}
+
+html,
+body,
+div,
+header,
+h1,
+section,
+label,
+input,
+textarea,
+button,
+ul,
+li,
+footer {
   margin: 0;
   padding: 0;
 }
 
 body {
   width: 480px;
-  font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
-  font-size: 16px;
+  font: var(--font-stack);
   line-height: 1.2;
   text-align: center;
   user-select: none;
-  -webkit-user-select: none;
 }
 
 .wrapper {
@@ -44,8 +58,7 @@ li {
 
 .gen__btn {
   padding: 8px 12px;
-  font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
-  font-size: 16px;
+  font: var(--font-stack);
   font-weight: 400;
   touch-action: manipulation;
   cursor: pointer;
@@ -54,13 +67,12 @@ li {
   color: #fff;
   background-color: #428bca;
   text-transform: uppercase;
-}
-
-.gen__btn:disabled,
-.gen__btn:disabled:hover {
-  background-color: rgba(0, 0, 0, .2);
-  border-color: rgba(0, 0, 0, .2);
-  cursor: default;
+  &:disabled,
+  &:disabled:hover {
+    background-color: rgba(0, 0, 0, .2);
+    border-color: rgba(0, 0, 0, .2);
+    cursor: default;
+  }
 }
 
 .gen__btn:hover {
@@ -85,7 +97,6 @@ textarea.show {
   padding: 2%;
   position: relative;
   user-select: auto;
-  -webkit-user-select: auto;
 }
 
 .tooltip {
@@ -95,19 +106,38 @@ textarea.show {
   top: 140px;
   left: 20px;
   animation: spring .3s ease-in-out 1;
-  -webkit-animation: spring .3s ease-in-out 1;
   width: 200px;
   text-align: center;
   padding: 2%;
   font-size: 18px;
 }
 
-@-webkit-keyframes spring {
-  0% {bottom: 75px; opacity:0; -webkit-transform: scale(0, 0);}
-  40% {top: 120px; opacity:1; -webkit-transform: scale(1.15, 1.15);}
-  60% {top: 140px; opacity:1; -webkit-transform: scale(1, 1);}
-  80% {top: 145px; opacity:1; -webkit-transform: scale(1.05, 1.05);}
-  100% {top: 140px; opacity:1; -webkit-transform: scale(1, 1);}
+@keyframes spring {
+  0% {
+    bottom: 75px;
+    opacity: 0;
+    transform: scale(0, 0);
+  }
+  40% {
+    top: 120px;
+    opacity: 1;
+    transform: scale(1.15, 1.15);
+  }
+  60% {
+    top: 140px;
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+  80% {
+    top: 145px;
+    opacity: 1;
+    transform: scale(1.05, 1.05);
+  }
+  100% {
+    top: 140px;
+    opacity: 1;
+    transform: scale(1, 1);
+  }
 }
 
 .tooltip:after {
