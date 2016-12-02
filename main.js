@@ -2,6 +2,7 @@
 
 const {app, BrowserWindow, Menu} = require("electron");
 const path = require("path");
+const fs = require("fs");
 
 let mainWindow;
 
@@ -121,8 +122,25 @@ const installMenu = () => {
 app.on("ready", () => {
   mainWindow = new BrowserWindow({
     width: 480,
-    height: 640
+    height: 640,
+    title: app.getName(),
+    show: false,
+    // icon: process.platform === "linux" && path.join(__dirname, "static/Icon.png"),
+    titleBarStyle: "hidden-inset",
+    autoHideMenuBar: true,
+    webPreferences: {
+      preload: path.join(__dirname, "js/script.js"),
+      nodeIntegration: false,
+      plugins: true
+    }
   });
+
+  const page = mainWindow.webContents;
+  page.on("dom-ready", () => {
+    page.insertCSS(fs.readFileSync(path.join(__dirname, "dist/css/style.css"), "utf8"));
+    mainWindow.show();
+  });
+
   const url = path.join(__dirname, "/index.html");
   mainWindow.loadURL("file://" + url);
   installMenu();
